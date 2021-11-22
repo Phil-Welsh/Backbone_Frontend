@@ -1,39 +1,27 @@
-import React, { Component } from 'react'
-import PlaceModel from '../models/game'
+import React from 'react'
 import { Link } from 'react-router-dom'
-import PlaceShow from '../components/PlaceShow'
+import PlaceShow from './PlaceShow'
+import usePlaces from "../hooks/usePlaces";
 
-class Places extends Component {
-    state = {
-        places: []
+function PlaceList(props) {
+    const [places, fetchPlaces] = usePlaces();
+
+    function generateList(places) {
+        return places.map((place, index) => (
+            <Link to={`/places/${place._id}`} key={index}>
+                <PlaceShow {...place} />
+            </Link>
+        ));
     }
 
-    componentDidMount() {
-        this.fetchData()
-    }
-
-    fetchData = () => {
-        PlaceModel.all().then(data => {
-            this.setState({ places: data.places })
-        })
-    }
-
-    render() {
-            let placeList = this.state.places.map((place, index) => {
-                return (
-                <Link to={`/places/${ place._id }`} key={index}>
-                    <PlaceShow data={place} />
-                </Link>
-                )
-            })
-
-            return (
-                <div>
-                    <h1>All Places</h1>
-                        { this.state.places ? placeList : 'Loading...' }
-                </div>
-            );
-        }
+    return (
+        <div>
+            <h1>All Places</h1>
+            {places.length}
+            {places.length ? generateList(places) : "Loading..."}
+            <button onClick={fetchPlaces} >Get Places</button>
+        </div>
+    );
 }
 
-export default Places;
+export default PlaceList;

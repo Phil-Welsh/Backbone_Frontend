@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom'
 import Home from '../pages/Home'
 import PlaceList from '../pages/PlaceList'
 import PlaceShow from '../pages/PlaceShow'
-import NewPlace from '../pages/NewPlace'
+import NewPlace from '../components/NewPlace'
 
 export default (
   <Routes>
