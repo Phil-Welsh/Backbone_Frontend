@@ -1,14 +1,28 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router';
-import usePlaces from "../hooks/usePlaces"
+import PlaceModel from "../models/place";
 
 const PlaceShow = () => {
+    const [place, setPlace] = useState([])
 
     const params = useParams()
 
+    useEffect(
+        function() {
+            fetchPlace();
+        },
+        []
+    );
+
+    function fetchPlace() {
+        PlaceModel.show(params.id).then((data) => {
+            setPlace(data.place);
+        });
+    }
+
     return (
         <div>
-            < usePlaces placeId = { params.id } />
+            {place.name}
         </div>
         );
     }
