@@ -1,24 +1,24 @@
 const url = `http://localhost:4000/api/v1`
 
-class PlaceModel {
+class SpeedtestModel {
     static all = () => {
-        return fetch(`${url}/places`).then(res => res.json())
+        return fetch(`${url}/speedtests`).then(res => res.json())
       }
 
     static show = (id) => {
-        return fetch(`${url}/places/${id}`).then(res => res.json())
+        return fetch(`${url}/speedtests/${id}`).then(res => res.json())
     }
 
-    static create = (placeData) => {
-        return fetch(`${url}/places`, {
+    static create = (speedtestData) => {
+        return fetch(`${url}/speedtests`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
-          body: JSON.stringify(placeData)
+          body: JSON.stringify(speedtestData)
         })
           .then(res => res.json())
       }
     }
 
-export default PlaceModel
+export default SpeedtestModel

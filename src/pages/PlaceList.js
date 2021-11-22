@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import PlaceShow from './PlaceShow'
 import PlaceModel from "../models/place";
 
-function PlaceList(props) {
+function PlaceList() {
     const [places, setPlaces] = useState([]);
 
     useEffect(
