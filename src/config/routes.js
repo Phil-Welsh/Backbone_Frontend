@@ -7,6 +7,7 @@ import PlaceShow from '../pages/PlaceShow'
 import NewPlace from '../components/NewPlace'
 import NewSpeedtest from '../components/NewSpeedtest'
 import SpeedtestList from '../pages/SpeedtestList'
+import PlaceMap from '../pages/PlaceMap'
 
 export default (
   <Routes>
@@ -16,5 +17,6 @@ export default (
     <Route path='/newplace' element={ < NewPlace /> } />
     <Route path='/newspeedtest' element={ < NewSpeedtest /> } />
     <Route path='/speedtests' element={ < SpeedtestList /> } />
+    <Route path='/map' element={ < PlaceMap /> } />
   </Routes>
 )

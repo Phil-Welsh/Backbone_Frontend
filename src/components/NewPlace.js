@@ -7,13 +7,15 @@ function NewPlace(props) {
     const [city, setCity] = useState("");
     const [address, setAddress] = useState("");
     const [type, setType] = useState("");
+    const [latitude, setLatitude] = useState("");
+    const [longitude, setLongitude] = useState("");
 
     const navigate = useNavigate();
 
     function handleSubmit(event) {
         event.preventDefault();
 
-        PlaceModel.create({ name, city, address, type }).then(
+        PlaceModel.create({ name, city, address, type, latitude, longitude }).then(
             (data) => {
                 navigate("/places");
             }
@@ -60,7 +62,24 @@ function NewPlace(props) {
                         value={type}
                     />
                 </div>
-
+                <div className='form-input'>
+                    <label htmlFor='latitude'>Latitude</label>
+                    <input
+                        type='text'
+                        name='latitude'
+                        onChange={(e) => setLatitude(e.target.value)}
+                        value={latitude}
+                    />
+                </div>
+                <div className='form-input'>
+                    <label htmlFor='longitude'>Longitude</label>
+                    <input
+                        type='text'
+                        name='longitude'
+                        onChange={(e) => setLongitude(e.target.value)}
+                        value={longitude}
+                    />
+                </div>
                 <input type='submit' value='Save!' />
             </form>
         </div>
