@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import PlaceModel from "../models/place";
+import { useNavigate } from "react-router-dom";
 
 let autoComplete;
 
@@ -26,7 +28,7 @@ function handleScriptLoad(updateQuery, autoCompleteRef) {
         autoCompleteRef.current,
         { types: ["establishment"], componentRestrictions: { country: "us" } }
     );
-    autoComplete.setFields(["address_components", "geometry"]);
+    autoComplete.setFields(["formatted_address", "geometry", "name"]);
     autoComplete.addListener("place_changed", () =>
         handlePlaceSelect(updateQuery)
     );
@@ -34,14 +36,14 @@ function handleScriptLoad(updateQuery, autoCompleteRef) {
 
 async function handlePlaceSelect(updateQuery) {
     const addressObject = autoComplete.getPlace();
-    const query = addressObject.geometry;
+    const query = addressObject;
     updateQuery(query);
-    console.log(addressObject);
 }
 
 function SearchLocationInput() {
     const [query, setQuery] = useState("");
     const autoCompleteRef = useRef(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         loadScript(
@@ -50,14 +52,34 @@ function SearchLocationInput() {
         );
     }, []);
 
+    function handleSubmit(event) {
+        console.log(query)
+        event.preventDefault();
+
+        const name = query.name
+        const address = query.formatted_address
+        const latitude = query.geometry.location.lat()
+        const longitude = query.geometry.location.lng()
+
+
+        PlaceModel.create({ name, address, latitude, longitude }).then(
+            (data) => {
+                navigate("/places");
+            }
+        );
+    }
+
     return (
         <div className="search-location-input">
-            <input
-                ref={autoCompleteRef}
-                onChange={event => setQuery(event.target.value)}
-                placeholder="Enter establishment name"
-                value={query}
-            />
+            <form onSubmit={handleSubmit}>
+                <input
+                    ref={autoCompleteRef}
+                    onChange={event => setQuery(event.target.value)}
+                    placeholder="Enter establishment name"
+                    value={query}
+                />
+                <input type='submit' value='Save!' />
+            </form>
         </div>
     );
 }
