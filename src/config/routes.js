@@ -9,6 +9,9 @@ import NewSpeedtest from '../components/NewSpeedtest'
 import SpeedtestList from '../pages/SpeedtestList'
 import PlaceMap from '../pages/PlaceMap'
 import Speedtest from '../pages/Speedtest'
+import Register from '../components/Register'
+import Login from '../components/Login'
+import Profile from '../components/Profile'
 
 export default (
   <Routes>
@@ -20,5 +23,8 @@ export default (
     <Route path='/speedtests' element={ < SpeedtestList /> } />
     <Route path='/speedtest' element={ < Speedtest /> } />
     <Route path='/map' element={ < PlaceMap /> } />
+    <Route path='/register' element={ < Register /> } />
+    <Route path='/login' element={ < Login /> } />
+    <Route path='/profile' element={ < Profile /> } />
   </Routes>
 )
