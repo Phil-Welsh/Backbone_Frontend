@@ -13,7 +13,8 @@ function Login() {
         const form = e.target;
         const user = {
             username: form[0].value,
-            password: form[1].value
+            email: form[1].value,
+            password: form[2].value
         }
 
         try {
@@ -49,6 +50,8 @@ function Login() {
                 <form onSubmit={(e) => handleLogin(e)}>
                     <label htmlFor="username">Username</label>
                     <input type="text" name="username" id="username" />
+                    <label htmlFor="email">Email</label>
+                    <input type="text" name="email" id="email" />
                     <label htmlFor="password">Password</label>
                     <input type="password" name="password" id="password" />
                     <input type="submit" value="Login"/>

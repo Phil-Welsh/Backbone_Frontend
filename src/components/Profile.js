@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
 
-function Profile({ match }) {
-    const userId = match.params.userId;
+function Profile() {
     const [user, setUser] = useState({})
 
     useEffect(() => {
-        fetch("http://localhost:4000/api/v1/profile/" + userId, {
+        fetch("http://localhost:4000/api/v1/profile", {
             headers: {
-                "x-access-token": localStorage.getItem("token")
+                "authorization": localStorage.getItem("token")
             }
         })
             .then(res => res.json())
@@ -16,29 +15,29 @@ function Profile({ match }) {
                 setUser(data)
             })
             .catch(err => alert(err))
-    }, [userId])
+    }, [user])
 
-    async function changeUserInfo(e) {
-        e.preventDefault();
-        const form = e.target
-        const newBio = form[0].value;
+    // async function changeUserInfo(e) {
+    //     e.preventDefault();
+    //     const form = e.target
+    //     const newBio = form[0].value;
 
-        setUser({ ...user, bio: newBio })
-        form[0].value = ""
+    //     setUser({ ...user, bio: newBio })
+    //     form[0].value = ""
 
-        try {
-            await fetch("/api/updateUserInfo", {
-                method: "POST",
-                headers: {
-                    "x-access-token": localStorage.getItem("token"),
-                    "Content-type": "application/json"
-                },
-                body: JSON.stringify({ newBio: newBio })
-            })
-        } catch (err) {
-            alert(err)
-        }
-    }
+    //     try {
+    //         await fetch("/api/updateUserInfo", {
+    //             method: "POST",
+    //             headers: {
+    //                 "x-access-token": localStorage.getItem("token"),
+    //                 "Content-type": "application/json"
+    //             },
+    //             body: JSON.stringify({ newBio: newBio })
+    //         })
+    //     } catch (err) {
+    //         alert(err)
+    //     }
+    // }
 
     return (
         <div>
@@ -62,7 +61,7 @@ function Profile({ match }) {
                         </div>
                     </>
                 }
-
+{/* 
                 {user.canEdit
                     ? <form onSubmit={(e) => changeUserInfo(e)}>
                         <label htmlFor="bio">Change Bio</label>
@@ -71,7 +70,7 @@ function Profile({ match }) {
                         <p>1000 characters maximum</p>
                     </form>
                     : <></>
-                }
+                } */}
             </div>
         </div>
     )
