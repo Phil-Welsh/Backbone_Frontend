@@ -12,10 +12,10 @@ function Profile() {
         })
             .then(res => res.json())
             .then(data => {
-                setUser(data)
+                setUser(data.user)
             })
             .catch(err => alert(err))
-    }, [user])
+    }, [])
 
     // async function changeUserInfo(e) {
     //     e.preventDefault();
@@ -42,35 +42,8 @@ function Profile() {
     return (
         <div>
             <div>
-                <header>
-                    {user.username !== "User Not Found" ? <img src={user.pfp} alt="" /> : null}
-                    <h1>{user.username}</h1>
-                </header>
-                {user.username === "User Not Found"
-                    ? null
-                    : <>
-                        <h1>Biography</h1>
-                        <div>{user.bio}</div>
-                        <h1>Created Groups</h1>
-                        <div>
-                            {user.createdGroups
-                                ? user.createdGroups.map(group => (
-                                    <Link key={group._id} to={group.url}>{group.groupName}</Link>
-                                ))
-                                : <div>Loading...</div>}
-                        </div>
-                    </>
-                }
-{/* 
-                {user.canEdit
-                    ? <form onSubmit={(e) => changeUserInfo(e)}>
-                        <label htmlFor="bio">Change Bio</label>
-                        <textarea maxLength="1000" name="bio" id="bio" />
-                        <input type="submit" value="Submit" />
-                        <p>1000 characters maximum</p>
-                    </form>
-                    : <></>
-                } */}
+                <h1>Biography</h1>
+                <div>{user.username}</div>
             </div>
         </div>
     )
