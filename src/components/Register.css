@@ -1,6 +1,13 @@
-input {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
+.register-card {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    margin-top: 50px;
     }
+
+.register-card input {
+    width: 80%;
+    padding: 3px;
+    margin: 5px;
+}

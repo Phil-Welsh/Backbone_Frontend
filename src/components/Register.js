@@ -14,9 +14,12 @@ function Register () {
         const form = e.target
         const user = {
             username: form[0].value,
-            email: form[1].value,
-            password: form[2].value,
-            confirmPassword: form[3].value
+            firstName: form[1].value,
+            lastName: form[2].value,
+            icon: form[3].value,
+            email: form[4].value,
+            password: form[5].value,
+            confirmPassword: form[6].value
         }
 
         try {
@@ -46,23 +49,29 @@ function Register () {
     // }, [navigate])
 
     return (
-        <div>
+        <div className="register-card">
             <h1>Register</h1>
             <form onSubmit={(e) => handleRegister(e)}>
-                <label htmlFor="username">Username</label>
-                <input type="text" name="username" id="username" />
-                <label htmlFor="email">Email</label>
-                <input type="text" name="email" id="email" />
-                <label htmlFor="password">Password</label>
-                <input type="password" name="password" id="password" />
-                <label htmlFor="password">Confirm Password</label>
-                <input type="password" name="password" id="password" />
-                <input type="submit" value="Register" />
+                <label htmlFor="username">Username</label> <br/>
+                <input type="text" name="username" id="username" /> <br/>
+                <label htmlFor="firstName">First name</label> <br/>
+                <input type="text" name="firstName" id="firstName" /> <br/>
+                <label htmlFor="lastName">Last name</label> <br/>
+                <input type="text" name="lastName" id="lastName" /> <br/>
+                <label htmlFor="icon">Icon image</label> <br/>
+                <input type="text" name="icon" id="icon" /> <br/>
+                <label htmlFor="email">Email</label> <br/>
+                <input type="text" name="email" id="email" /> <br/>
+                <label htmlFor="password">Password</label> <br/>
+                <input type="password" name="password" id="password" /> <br/>
+                <label htmlFor="password">Confirm Password</label> <br/>
+                <input type="password" name="password" id="password" /> <br/>
+                <input type="submit" value="Register" /> <br/>
                 <div>
                     <h3>Already have an account?</h3>
                     <Link to="/login">Login</Link>
                 </div>
-                {errorMessage === "Success" ? navigate("/login"): <ValidationError message={errorMessage} />}
+                {errorMessage === "success" ? navigate("/login"): <ValidationError message={errorMessage} />}
             </form>
         </div>
     )

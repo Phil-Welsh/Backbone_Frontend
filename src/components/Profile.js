@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom'
+import './Profile.css'
 
 function Profile() {
     const [user, setUser] = useState({})
@@ -40,11 +41,12 @@ function Profile() {
     // }
 
     return (
-        <div>
+        <div className="profile-card">
             <div>
-                <h1>{user.username}'s Profile</h1>
-                <div>Username: {user.username}</div>
-                <div>Email: {user.email}</div>
+                <h1>{user.username}'s profile</h1>
+                <p>Username: {user.username}</p>
+                <p>Email: {user.email}</p>
+                <img src={user.icon}/>
             </div>
         </div>
     )

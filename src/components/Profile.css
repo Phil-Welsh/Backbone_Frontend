@@ -1,4 +1,4 @@
-.login-card {
+.profile-card {
     margin: auto;
     width: 50%;
     border: 3px solid green;
@@ -6,8 +6,11 @@
     margin-top: 50px;
 }
 
-.login-card input {
-    width: 80%;
-    padding: 3px;
-    margin: 5px;
+.profile-card img {
+    height: 60%;
+    width: 60%;
+}
+
+.profile-card p {
+    padding: 1px;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
 import Place from '../models/place'
+import './PlaceMap.css'
 
 class PlaceMap extends Component {
 
@@ -31,15 +32,17 @@ class PlaceMap extends Component {
         )
 
         return (
-
-            <Map
-                google={this.props.google}
-                zoom={12}
-                initialCenter={{ lat: 32.7982678, lng: -117.2491873 }}
-                style={{ width: '75%', height: '75%', position: 'relative' }}
-            >
-                {this.state.place ? listLoop : 'Loading...'}
-            </Map>
+            <div className="map">
+                <h1>Hotspot Map</h1>
+                <Map
+                    google={this.props.google}
+                    zoom={12}
+                    initialCenter={{ lat: 32.7982678, lng: -117.2491873 }}
+                    style={{ width: '75%', height: '75%', position: 'relative' }}
+                >
+                    {this.state.place ? listLoop : 'Loading...'}
+                </Map>
+            </div>
         )
     }
 }
