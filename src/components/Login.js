@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useState  } from 'react';
 import { Link, useNavigate} from 'react-router-dom'
 import ValidationError from './ValidationError'
+import './Login.css'
 
 function Login() {
 
@@ -45,18 +46,18 @@ function Login() {
     // }, [navigate])
 
     return (
-        <div>
-            <div>Login</div>
+        <div className="login-card">
+            <h1>Login</h1>
                 <form onSubmit={(e) => handleLogin(e)}>
-                    <label htmlFor="username">Username</label>
-                    <input type="text" name="username" id="username" />
-                    <label htmlFor="email">Email</label>
-                    <input type="text" name="email" id="email" />
-                    <label htmlFor="password">Password</label>
-                    <input type="password" name="password" id="password" />
-                    <input type="submit" value="Login"/>
+                    <label htmlFor="username">Username</label> <br/>
+                    <input type="text" name="username" id="username" /> <br/>
+                    <label htmlFor="email">Email</label> <br/>
+                    <input type="text" name="email" id="email" /> <br/>
+                    <label htmlFor="password">Password</label> <br/>
+                    <input type="password" name="password" id="password" /> <br/>
+                    <input type="submit" value="Login"/> <br/>
                     <div>
-                        <h1>Don't have an account?</h1>
+                        <h3>Don't have an account?</h3>
                         <Link to="/register">Register</Link>
                     </div>
                 </form>

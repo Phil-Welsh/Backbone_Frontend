@@ -23,7 +23,8 @@ const PlaceShow = () => {
 
     return (
         <div>
-            {place.name}
+            <h1>{place.name}</h1>
+            <p>{place.address}</p>
             < Comment placeId={params.id} />
         </div>
         );
