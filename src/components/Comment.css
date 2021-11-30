@@ -1,0 +1,26 @@
+a:link {
+    text-decoration: none;
+    }
+
+a:visited {
+    text-decoration: none;
+    }
+
+a:hover {
+    text-decoration: none;
+    }
+
+a:active {
+    text-decoration: none;
+    }
+
+.comment {
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    padding: 5px;
+    margin: auto;
+    width: 30vw;
+    color: black;
+
+}

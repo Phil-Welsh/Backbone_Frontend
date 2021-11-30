@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import { Link } from 'react-router-dom'
 import PlaceModel from "../models/place";
+import './PlaceList.css'
 
 function PlaceList() {
     const [places, setPlaces] = useState([]);
@@ -21,7 +22,9 @@ function PlaceList() {
     function generateList(places) {
         return places.map((place, index) => (
             <Link to={`/places/${place._id}`} key={index}>
-                {place.name}
+                <div>
+                    {place.name}
+                </div>
             </Link>
         ));
     }

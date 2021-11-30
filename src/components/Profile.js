@@ -42,8 +42,9 @@ function Profile() {
     return (
         <div>
             <div>
-                <h1>Biography</h1>
-                <div>{user.username}</div>
+                <h1>{user.username}'s Profile</h1>
+                <div>Username: {user.username}</div>
+                <div>Email: {user.email}</div>
             </div>
         </div>
     )
