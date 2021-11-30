@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router';
 import PlaceModel from "../models/place";
+import Comment from "../components/Comment";
 
 const PlaceShow = () => {
     const [place, setPlace] = useState([])
@@ -23,6 +24,7 @@ const PlaceShow = () => {
     return (
         <div>
             {place.name}
+            < Comment placeId={params.id} />
         </div>
         );
     }
