@@ -1,0 +1,10 @@
+.comment-show {
+    border: 1px;
+    border-style: solid;
+    border-color: black;
+    padding: 5px;
+    margin: auto;
+    margin-top: 40px;
+    width: 50vw;
+    color: black;
+}
