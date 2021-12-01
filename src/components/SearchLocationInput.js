@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import PlaceModel from "../models/place";
 import { useNavigate } from "react-router-dom";
+import './SearchLocationInput.css'
 
 let autoComplete;
 
@@ -70,7 +71,8 @@ function SearchLocationInput() {
     }
 
     return (
-        <div className="search-location-input">
+        <div className="search-location">
+            <h3>Input your location below after running the speed test!</h3>
             <form onSubmit={handleSubmit}>
                 <input
                     ref={autoCompleteRef}

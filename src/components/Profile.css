@@ -1,0 +1,16 @@
+.profile-card {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    margin-top: 50px;
+}
+
+.profile-card img {
+    height: 60%;
+    width: 60%;
+}
+
+.profile-card p {
+    padding: 1px;
+}
