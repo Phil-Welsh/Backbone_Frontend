@@ -30,7 +30,6 @@ function PlaceSpeedtestList(props) {
 
     return (
         <div>
-            <h3>Speedtests</h3>
             {speedtests ? generateList(speedtests) : "Loading..."}
         </div>
     );
