@@ -21,14 +21,10 @@ function PlaceSpeedtestList(props) {
 
     function generateList(speedtests) {
         return speedtests.map((speedtest, index) => (
-            <Link to={`/speedtests/${speedtest._id}`} key={index}>
-                <div className="speedtest">
-                    <a>
-                        {speedtest.download}
-                        <br/>
-                    </a>
-                </div>
-            </Link>
+            <div className="speedtest">
+                <a><b>Date</b>: {speedtest.resultDate.substring(0, 10)}</a>
+                <a><b> Download speed (kbps)</b>: {speedtest.download}</a>
+            </div>
         ));
     }
 

@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import CommentModel from "../models/comment";
-import Button from "../components/Button"
+import EditDeleteButton from "./EditDeleteButton"
 import './CommentShow.css'
 
 const CommentShow = () => {
     const [comment, setComment] = useState([])
     const [user, setUser] = useState({})
+    const [place, setPlace] = useState([])
     const params = useParams()
 
     useEffect(
@@ -20,7 +21,8 @@ const CommentShow = () => {
 
     function fetchComment() {
         CommentModel.show(params.id).then((data) => {
-            setComment(data.comment);
+            setComment(data.comment.body)
+            setPlace(data.comment.place.name);
         });
     }
 
@@ -38,8 +40,16 @@ const CommentShow = () => {
     }
 
     return (
-        <div className="comment-show">
-            {comment.body}
+        <div>
+            <h1>{place}</h1>
+            <div className="comment-show">
+                <a>
+                    {comment}
+                </a>
+            </div>
+            <div>
+                {user ? < EditDeleteButton /> : ""}
+            </div>
         </div>
     );
 }

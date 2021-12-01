@@ -49,7 +49,8 @@ const PlaceShow = () => {
         <div>
             <h1>{place.name}</h1>
             <p>Address: {place.address}</p>
-            <p>IP Address: {place.ipAddress}</p>
+            <p>IP Address: {place.ipAddress}</p> <br/>
+            <h3>Recent speedtests at {place.name}</h3>
             < PlaceSpeedtests placeId={params.id} />
             < Comment placeId={params.id} />
             < Button onClick={addComponent} text={"Add comment!"} />
