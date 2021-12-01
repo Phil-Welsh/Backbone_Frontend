@@ -9,13 +9,14 @@ function NewPlace(props) {
     const [type, setType] = useState("");
     const [latitude, setLatitude] = useState("");
     const [longitude, setLongitude] = useState("");
+    const [ipAddress, setIpAddress] = useState("");
 
     const navigate = useNavigate();
 
     function handleSubmit(event) {
         event.preventDefault();
 
-        PlaceModel.create({ name, city, address, type, latitude, longitude }).then(
+        PlaceModel.create({ name, city, address, type, latitude, longitude, ipAddress }).then(
             (data) => {
                 navigate("/places");
             }
@@ -78,6 +79,15 @@ function NewPlace(props) {
                         name='longitude'
                         onChange={(e) => setLongitude(e.target.value)}
                         value={longitude}
+                    />
+                </div>
+                <div className='form-input'>
+                    <label htmlFor='ipAddress'>IP Address</label>
+                    <input
+                        type='text'
+                        name='ipAddress'
+                        onChange={(e) => setIpAddress(e.target.value)}
+                        value={ipAddress}
                     />
                 </div>
                 <input type='submit' value='Save!' />

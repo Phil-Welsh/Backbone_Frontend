@@ -24,6 +24,17 @@ class CommentModel {
         })
             .then(res => res.json())
     }
+
+    static update = (commentData, props) => {
+        return fetch(`${url}/comments/${props}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(commentData)
+        })
+            .then(res => res.json())
+    }
 }
 
 export default CommentModel
