@@ -10,7 +10,7 @@ function CommentList(props) {
         function() {
             fetchComments();
         },
-        [comments]
+        []
     );
 
     function fetchComments() {
@@ -38,7 +38,7 @@ function CommentList(props) {
     return (
         <div>
             <h3>Comments</h3>
-            {comments.length ? generateList(comments) : "Loading..."}
+            {comments ? generateList(comments) : "Loading..."}
         </div>
     );
 }

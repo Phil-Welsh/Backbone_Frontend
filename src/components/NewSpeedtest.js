@@ -15,15 +15,16 @@ function NewSpeedtest(props) {
     const [latency, setLatency] = useState(null);
     const [jitter, setJitter] = useState(null);
     const [testId, setTestId] = useState("");
+    const [place, setPlace] = useState("");
 
     const navigate = useNavigate();
 
     function handleSubmit(event) {
         event.preventDefault();
 
-        SpeedtestModel.create({ resultDate, ipAddress, country, region, city, latitude, longitude, download, upload, latency, jitter, testId }).then(
+        SpeedtestModel.create({ resultDate, ipAddress, country, region, city, latitude, longitude, download, upload, latency, jitter, testId, place }).then(
             (data) => {
-                navigate("/speedtests");
+                navigate("/places");
             }
         );
     }
@@ -138,6 +139,15 @@ function NewSpeedtest(props) {
                         name='testId'
                         onChange={(e) => setTestId(e.target.value)}
                         value={testId}
+                    />
+                </div>
+                <div className='form-input'>
+                    <label htmlFor='place'>Place</label>
+                    <input
+                        type='text'
+                        name='place'
+                        onChange={(e) => setPlace(e.target.value)}
+                        value={place}
                     />
                 </div>
                 <input type='submit' value='Save!' />

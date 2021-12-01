@@ -4,6 +4,7 @@ import PlaceModel from "../models/place";
 import Comment from "../components/Comment";
 import Button from "../components/Button"
 import NewComment from "../components/NewComment"
+import PlaceSpeedtests from "../components/PlaceSpeedtests"
 
 const PlaceShow = () => {
     const [place, setPlace] = useState([])
@@ -47,7 +48,10 @@ const PlaceShow = () => {
     return (
         <div>
             <h1>{place.name}</h1>
-            <p>{place.address}</p>
+            <p>Address: {place.address}</p>
+            <p>IP Address: {place.ipAddress}</p> <br/>
+            <h3>Recent speedtests at {place.name}</h3>
+            < PlaceSpeedtests placeId={params.id} />
             < Comment placeId={params.id} />
             < Button onClick={addComponent} text={"Add comment!"} />
             {components == true ? < NewComment user={user._id} /> : ""}

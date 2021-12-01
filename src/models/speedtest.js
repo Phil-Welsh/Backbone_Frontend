@@ -1,9 +1,14 @@
 const url = `http://localhost:4000/api/v1`
 
 class SpeedtestModel {
-    static all = () => {
-        return fetch(`${url}/speedtests`).then(res => res.json())
-      }
+  static all = (place) => {
+    return fetch(`${url}/speedtests`, {
+        headers: {
+            "placeId": place.placeId
+        },
+    })
+        .then(res => res.json())
+}
 
     static show = (id) => {
         return fetch(`${url}/speedtests/${id}`).then(res => res.json())
