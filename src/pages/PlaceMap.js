@@ -1,50 +1,54 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import { useNavigate } from 'react-router-dom';
 import Place from '../models/place'
 import './PlaceMap.css'
 
-class PlaceMap extends Component {
+const PlaceMap = (props) => {
+    const [places, setPlaces] = useState([])
 
-    state = {
-        place: []
-    }
+    const navigate = useNavigate()
 
-    componentDidMount() {
-        this.fetchData()
-    }
+    useEffect(
+        function() {
+            fetchPlaces();
+        },
+        []
+    );
 
-    fetchData = () => {
+    function fetchPlaces() {
         Place.all().then(data => {
-            this.setState({ place: data.places })
+            setPlaces(data.places)
         })
     }
 
-    render() {
-
-        let listLoop = this.state.place.map((p, index) => {
-            return (
+    function generatePlaces(places) {
+        return places.map((p, index) => (
                 <Marker
                     title={'C2E2'}
                     name={'C2E2'}
                     position={{ lat: p.latitude, lng: p.longitude }}
-                />)
-        }
+                    onClick={() => {
+                        navigate(`/places/${p._id}`);
+                    }}
+                />
+            )
         )
+    }
 
-        return (
-            <div className="map">
-                <h1>Hotspot Map</h1>
+    return(
+        <div className="map">
+            <h1>Hotspot Map</h1>
                 <Map
-                    google={this.props.google}
+                    google={props.google}
                     zoom={12}
                     initialCenter={{ lat: 32.7982678, lng: -117.2491873 }}
                     style={{ width: '75%', height: '75%', position: 'relative' }}
                 >
-                    {this.state.place ? listLoop : 'Loading...'}
+                {places ? generatePlaces(places) : "Loading..."}
                 </Map>
-            </div>
-        )
-    }
+        </div>
+    )
 }
 
 export default GoogleApiWrapper(
