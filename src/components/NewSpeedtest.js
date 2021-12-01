@@ -10,14 +10,6 @@ function NewSpeedtest(props) {
     const [city, setCity] = useState("");
     const [latitude, setLatitude] = useState("");
     const [longitude, setLongitude] = useState("");
-    const [serverName, setServerName] = useState("");
-    const [serverSponsor, setServerSponsor] = useState("");
-    const [browserName, setBrowserName] = useState("");
-    const [browserVersion, setBrowserVersion] = useState("");
-    const [userAgent, setUserAgent] = useState("");
-    const [ispName, setIspName] = useState("");
-    const [ispNameRaw, setIspNameRaw] = useState("");
-    const [OS, setOS] = useState("");
     const [download, setDownload] = useState(null);
     const [upload, setUpload] = useState(null);
     const [latency, setLatency] = useState(null);
@@ -29,7 +21,7 @@ function NewSpeedtest(props) {
     function handleSubmit(event) {
         event.preventDefault();
 
-        SpeedtestModel.create({ resultDate, ipAddress, country, region, city, latitude, longitude, serverName, serverSponsor, browserName, browserVersion, userAgent, ispName, ispNameRaw, OS, download, upload, latency, jitter, testId }).then(
+        SpeedtestModel.create({ resultDate, ipAddress, country, region, city, latitude, longitude, download, upload, latency, jitter, testId }).then(
             (data) => {
                 navigate("/speedtests");
             }
@@ -101,78 +93,6 @@ function NewSpeedtest(props) {
                         name='longitude'
                         onChange={(e) => setLongitude(e.target.value)}
                         value={longitude}
-                    />
-                </div>
-                <div className='form-input'>
-                    <label htmlFor='serverName'>Server Name</label>
-                    <input
-                        type='text'
-                        name='serverName'
-                        onChange={(e) => setServerName(e.target.value)}
-                        value={serverName}
-                    />
-                </div>
-                <div className='form-input'>
-                    <label htmlFor='serverSponsor'>Server Sponsor</label>
-                    <input
-                        type='text'
-                        name='serverSponsor'
-                        onChange={(e) => setServerSponsor(e.target.value)}
-                        value={serverSponsor}
-                    />
-                </div>
-                <div className='form-input'>
-                    <label htmlFor='browserName'>Browser Name</label>
-                    <input
-                        type='text'
-                        name='browserName'
-                        onChange={(e) => setBrowserName(e.target.value)}
-                        value={browserName}
-                    />
-                </div>
-                <div className='form-input'>
-                    <label htmlFor='browserVersion'>Browser Version</label>
-                    <input
-                        type='text'
-                        name='browserVersion'
-                        onChange={(e) => setBrowserVersion(e.target.value)}
-                        value={browserVersion}
-                    />
-                </div>
-                <div className='form-input'>
-                    <label htmlFor='userAgent'>User Agent</label>
-                    <input
-                        type='text'
-                        name='userAgent'
-                        onChange={(e) => setUserAgent(e.target.value)}
-                        value={userAgent}
-                    />
-                </div>
-                <div className='form-input'>
-                    <label htmlFor='ispName'>ispName</label>
-                    <input
-                        type='text'
-                        name='ispName'
-                        onChange={(e) => setIspName(e.target.value)}
-                        value={ispName}
-                    />
-                </div>
-                <div className='form-input'>
-                    <label htmlFor='ispNameRaw'>Isp Name Raw</label>
-                    <input
-                        type='text'
-                        name='ispNameRaw'
-                        onChange={(e) => setIspNameRaw(e.target.value)}
-                        value={ispNameRaw}
-                    />
-                </div>
-                <div className='form-input'>
-                    <label htmlFor='OS'>OS</label>
-                    <input
-                        type='text'
-                        name='OS'
-                        onChange={(e) => setOS(e.target.value)}
-                        value={OS}
                     />
                 </div>
                 <div className='form-input'>

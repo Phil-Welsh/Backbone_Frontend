@@ -10,7 +10,7 @@ function CommentList(props) {
         function() {
             fetchComments();
         },
-        []
+        [comments]
     );
 
     function fetchComments() {
@@ -27,9 +27,9 @@ function CommentList(props) {
                         {comment.body}
                         <br/>
                     </a>
-                    <a>
+                    <small>
                         Comment by: {comment.user.username}
-                    </a>
+                    </small>
                 </div>
             </Link>
         ));
