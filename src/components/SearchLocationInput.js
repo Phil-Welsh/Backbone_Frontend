@@ -61,7 +61,7 @@ function SearchLocationInput() {
         const latitude = query.geometry.location.lat()
         const longitude = query.geometry.location.lng()
 
-        fetch('http://api.ipify.org')
+        fetch('https://api.ipify.org')
         .then(function(response) {
             return response.text()
         })
