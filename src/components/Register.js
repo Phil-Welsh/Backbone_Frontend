@@ -23,7 +23,7 @@ function Register () {
         }
 
         try {
-            const res = await fetch("http://localhost:4000/api/v1/register", {
+            const res = await fetch("https://backbone-welsh.herokuapp.com/api/v1/register", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json"
