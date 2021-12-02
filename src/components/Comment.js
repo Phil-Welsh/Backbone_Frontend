@@ -14,6 +14,7 @@ function CommentList(props) {
     );
 
     function fetchComments() {
+        console.log("infinite loop")
             CommentModel.all(props).then((data) => {
                 setComments(data.comments);
             });
