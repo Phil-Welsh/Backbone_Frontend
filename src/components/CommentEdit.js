@@ -28,7 +28,7 @@ function CommentEdit(props) {
     }
 
     function fetchUser() {
-        fetch("http://localhost:4000/api/v1/profile", {
+        fetch("https://backbone-welsh.herokuapp.com/api/v1/profile", {
             headers: {
                 "authorization": localStorage.getItem("token")
             }
