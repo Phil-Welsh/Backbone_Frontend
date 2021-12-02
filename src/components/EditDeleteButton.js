@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
 import CommentModel from '../models/comment'
+import './EditDeleteButton.css'
 
 const EditDeleteButton = (props) => {
     const navigate = useNavigate();
@@ -17,11 +18,11 @@ const EditDeleteButton = (props) => {
 }
 
     return (
-        <div className="edit-delete-button">
-            <button onClick={editButton}>
+        <div>
+            <button onClick={editButton} className="edit-button" >
                 Edit
             </button>
-            <button onClick={deleteButton}>
+            <button onClick={deleteButton} className="delete-button" >
                 Delete
             </button>
         </div>
