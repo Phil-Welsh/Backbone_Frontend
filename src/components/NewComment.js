@@ -17,7 +17,7 @@ function NewComment(props) {
 
         CommentModel.create({ body, user, place }).then(
             (data) => {
-                navigate(`/places/${params.id}`);
+                window.location.reload();
             }
         );
     }
