@@ -16,7 +16,6 @@ const PlaceShow = () => {
         setComponents(true)
     }
 
-
     useEffect(
         function () {
             fetchPlace();
