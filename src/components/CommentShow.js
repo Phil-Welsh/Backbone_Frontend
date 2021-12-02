@@ -8,6 +8,9 @@ const CommentShow = () => {
     const [comment, setComment] = useState([])
     const [user, setUser] = useState({})
     const [place, setPlace] = useState([])
+    const [commentUser, setCommentUser] = useState([])
+    const [commentId, setCommentId] = useState([])
+    const [placeId, setPlaceId] = useState([])
     const params = useParams()
 
     useEffect(
@@ -23,6 +26,9 @@ const CommentShow = () => {
         CommentModel.show(params.id).then((data) => {
             setComment(data.comment.body)
             setPlace(data.comment.place.name);
+            setCommentUser(data.comment.user)
+            setCommentId(data.comment._id)
+            setPlaceId(data.comment.place._id)
         });
     }
 
@@ -48,7 +54,7 @@ const CommentShow = () => {
                 </a>
             </div>
             <div>
-                {user ? < EditDeleteButton /> : ""}
+                {user._id == commentUser ? < EditDeleteButton placeId={placeId} commentId={commentId}/> : ""}
             </div>
         </div>
     );

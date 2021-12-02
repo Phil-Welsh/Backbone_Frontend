@@ -1,18 +1,29 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
+import CommentModel from '../models/comment'
+import './EditDeleteButton.css'
 
-const EditDeleteButton = () => {
-
-    const navigate = useNavigate()
+const EditDeleteButton = (props) => {
+    const navigate = useNavigate();
 
     const editButton = () => {
         navigate("./edit")
     }
 
+    const deleteButton = () => {
+        CommentModel.delete(props.commentId).then((data) => {
+        navigate(`/places/${props.placeId}`)
+        }
+    )
+}
+
     return (
-        <div className="edit-delete-button">
-            <button onClick={editButton}>
+        <div>
+            <button onClick={editButton} className="edit-button" >
                 Edit
+            </button>
+            <button onClick={deleteButton} className="delete-button" >
+                Delete
             </button>
         </div>
     );

@@ -10,8 +10,6 @@ function NewComment(props) {
     const [user, setUser] = useState(props.user);
     const [place, setPlace] = useState(params.id);
 
-    const navigate = useNavigate();
-
     function handleSubmit(event) {
         event.preventDefault();
 

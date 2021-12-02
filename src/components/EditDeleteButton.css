@@ -1,0 +1,23 @@
+.edit-button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.delete-button {
+    background-color: red; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    margin: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
