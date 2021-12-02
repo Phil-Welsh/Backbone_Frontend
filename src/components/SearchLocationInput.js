@@ -54,7 +54,6 @@ function SearchLocationInput() {
     }, []);
 
     function handleSubmit(event) {
-        console.log(query)
         event.preventDefault();
 
         const name = query.name
@@ -62,13 +61,28 @@ function SearchLocationInput() {
         const latitude = query.geometry.location.lat()
         const longitude = query.geometry.location.lng()
 
+        fetch('http://api.ipify.org')
+        .then(function(response) {
+            return response.text()
+        })
+        .then(function(html) {
+            var parser = new DOMParser();
 
-        PlaceModel.create({ name, address, latitude, longitude }).then(
-            (data) => {
-                navigate("/places");
+            var doc = parser.parseFromString(html, "text/html");
+
+            return doc.querySelector('body').innerHTML;
             }
-        );
-    }
+        )
+        .then(function(ipAddress) {
+            PlaceModel.create({ name, address, latitude, longitude, ipAddress }).then(
+                (data) => {
+                    console.log(ipAddress)
+                    navigate("/places");
+                }
+            )
+        }
+    )
+}
 
     return (
         <div className="search-location">
