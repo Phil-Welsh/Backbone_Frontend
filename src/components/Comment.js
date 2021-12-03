@@ -36,11 +36,22 @@ function CommentList(props) {
     }
 
     return (
-        <div>
-            <h3>Comments</h3>
-            {comments ? generateList(comments) : "Loading..."}
-        </div>
-    );
+        <>
+        {comments.length ? (
+                <div>
+                    <h2>Recent comments</h2>
+                    {generateList(comments)}
+                </div>
+                ) :
+
+                (
+                    <div>
+
+                    </div>
+                )
+            }
+        </>
+    )
 }
 
 export default CommentList;
