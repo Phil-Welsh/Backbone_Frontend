@@ -28,6 +28,7 @@ const PlaceMap = (props) => {
                     title={'C2E2'}
                     name={'C2E2'}
                     position={{ lat: p.latitude, lng: p.longitude }}
+                    key={index}
                     onClick={() => {
                         navigate(`/places/${p._id}`);
                     }}

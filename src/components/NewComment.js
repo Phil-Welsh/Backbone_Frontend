@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import CommentModel from "../models/comment";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import './NewComment.css'
 
 function NewComment(props) {

@@ -1,7 +1,5 @@
 import React, {useEffect, useState} from 'react'
-import { Link } from 'react-router-dom'
 import SpeedtestModel from "../models/speedtest";
-import './PlaceSpeedtests.css'
 
 function PlaceSpeedtestList(props) {
     const [speedtests, setSpeedtests] = useState([]);
@@ -23,16 +21,30 @@ function PlaceSpeedtestList(props) {
         return speedtests.map((speedtest, index) => (
             <div className="speedtest">
                 <a><b>Date</b>: {speedtest.resultDate.substring(0, 10)}</a>
-                <a><b> Download speed (kbps)</b>: {speedtest.download}</a>
+                <a><b> Download speed (Mbps)</b>: {speedtest.download}</a>
             </div>
         ));
     }
 
     return (
-        <div>
-            {speedtests ? generateList(speedtests) : "Loading..."}
-        </div>
-    );
+        <>
+        {speedtests.length ? (
+                <div>
+                    <h2>Recent speedtests</h2>
+                    {generateList(speedtests)}
+                </div>
+                ) :
+
+                (
+                    <div>
+
+                    </div>
+                )
+            }
+        </>
+    )
 }
+
+
 
 export default PlaceSpeedtestList;

@@ -35,7 +35,6 @@ The Backbone application displays a map of crowdsourced internet speeds. The dat
 - Junk data/User saying they're at wrong location
 - Headless browser shenanigans
 
-
 ## Technologies used
 - MERN stack
 - Google Maps API
