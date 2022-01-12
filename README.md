@@ -1,6 +1,8 @@
 # Backbone
 The Backbone application displays a map of crowdsourced internet speeds. The data is crowdsourced by users at cafes, coffeeshops, libraries, etc.
 
+Backbone is hosted live here: https://wifi-locator.netlify.app/
+
 ## Goal
 - Create a tool that helps users find cafes, libraries, and other public wifi access points with internet speeds that suit their needs
 
